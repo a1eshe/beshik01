@@ -10,10 +10,31 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
+import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Security
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost 127.0.0.1").split()
+
+# Static files
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  # local static papka
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # production collectstatic papkasi
+
+# Whitenoise (static fayllarni server orqali tarqatish)
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',  # whitenoise
+    # boshqa middleware-lar
+]
+
+# Whitenoise static fayllarni keshlashni yoqish
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,15 +46,15 @@ SECRET_KEY = 'django-insecure-cxur7-3x=nikym8%t$)#ll)^^z&ot)sb4km8$zz1s3cz=a761t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'beshik01-1.onrender.com']
-import os
+# # ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'beshik01-1.onrender.com']
+# import os
 
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost 127.0.0.1").split()
+# ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost 127.0.0.1").split()
 
 
-import os
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+# import os
+# STATIC_URL = '/static/'
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # Collect static files uchun directory (production)
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # Application definition
