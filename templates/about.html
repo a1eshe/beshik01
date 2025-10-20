@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Biz haqimizda — Beshik</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="{% static 'images/logo.png' %}" alt="Beshik logosi" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Bosh sahifa</a></li>
+                <li><a href="#">Sog‘lik</a></li>
+                <li><a href="#">Psixologiya</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Aloqa</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-page">
+        <h1>Biz haqimizda</h1>
+        <p><strong>Beshik</strong> — bu O‘zbekistonlik ota-onalar uchun yaratilgan raqamli ekotizimdir. 
+        Bizning maqsadimiz — farzandingizning sog‘ligi, psixologik holati va ta’lim jarayonini bir joyda qulay boshqarish imkonini berishdir.</p>
+
+        <img src="{% static 'images/oila.jpg' %}" alt="Oila rasmi" class="about-full-img">
+
+        <p>Beshik jamoasi — IT mutaxassislari, bolalar shifokorlari, va psixologlardan iborat. 
+        Biz bolalar rivoji bo‘yicha eng so‘nggi ilmiy tavsiyalarni tahlil qilib, foydalanuvchilarga qulay shaklda taqdim etamiz.</p>
+
+        <p>🍼 <strong>Platformamizda mavjud:</strong></p>
+        <ul class="about-list">
+            <li>👩‍⚕️ Bolalar shifokorlari bilan maslahat</li>
+            <li>🧠 Bolalar psixologiyasi bo‘yicha maqolalar</li>
+            <li>🛒 Bolalar uchun maxsus mahsulotlar do‘koni</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>© 2025 Beshik. Barcha huquqlar himoyalangan. 🇺🇿</p>
+    </footer>
+</body>
+</html>

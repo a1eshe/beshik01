@@ -1,0 +1,123 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Beshik — Farzandingiz uchun platforma</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'images/logo.png' %}" alt="Beshik logosi" class="logo-img">
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Bosh sahifa</a></li>
+            <li><a href="#">Sog‘lik</a></li>
+            <li><a href="#">Psixologiya</a></li>
+            <li><a href="#">Shop</a></li>
+            <li><a href="#">Aloqa</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-slider">
+    <div class="slide active">
+        <img src="{% static 'images/slider1.jpg' %}" alt="Slide 1">
+        <div class="slide-text">Farzandingiz uchun eng yaxshi platforma</div>
+    </div>
+    <div class="slide">
+        <img src="{% static 'images/slide2.jpg' %}" alt="Slide 2">
+        <div class="slide-text">Sog‘liq, psixologiya va ta’lim bir joyda</div>
+    </div>
+</div>
+
+    
+    </div>
+</header>
+
+
+    <section class="about-section">
+        <div class="about-card">
+            <img src="{% static 'images/family.jpg' %}" alt="Beshik haqida" class="about-img">
+            <div class="about-text">
+                <h2>Biz haqimizda</h2>
+                <p><strong>Beshik</strong> — bu O‘zbekistonlik ota-onalar uchun yaratilgan innovatsion platforma. 
+                Biz farzandingiz sog‘ligi, psixologiyasi va ta’limi haqida ishonchli ma’lumotlarni bir joyda taqdim etamiz.</p>
+                <p>🎯 Maqsadimiz — har bir bolaning baxtli va sog‘lom o‘sishiga yordam berish!</p>
+
+                <a href="{% url 'about' %}" class="read-more-btn">Ko‘proq o‘qish →</a>
+
+            </div>
+        </div>
+    </section>
+    <!-- Xizmatlar bo‘limi -->
+<section class="services">
+    <h2>Xizmatlarimiz</h2>
+    <div class="cards">
+        <div class="card">
+            <img src="{% static 'images/health.jpg' %}" alt="Sog‘lik">
+            <h3>Sog‘lik</h3>
+            <p>Bolangiz sog‘lig‘ini nazorat qilish, shifokor tavsiyalari va vaksinatsiya jadvali.</p>
+        </div>
+        <div class="card">
+            <img src="{% static 'images/psychology.jpg' %}" alt="Psixologiya">
+            <h3>Psixologiya</h3>
+            <p>Bolalar hissiy holatini tushunish va to‘g‘ri yondashish bo‘yicha maslahatlar.</p>
+        </div>
+        <div class="card">
+            <img src="{% static 'images/shop.jpg' %}" alt="Shop">
+            <h3>Shop</h3>
+            <p>Bolalar uchun tabiiy, xavfsiz mahsulotlar do‘koni.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Fikrlar bo‘limi -->
+<div class="testimonial-cards">
+    <blockquote>
+        <img src="{% static 'images/user1.jpg' %}" alt="Dilnoza" class="testimonial-img">
+        <p>“Beshik platformasi orqali farzandimning sog‘lig‘ini nazorat qilish juda oson bo‘ldi.”</p>
+        <cite>— Dilnoza, Toshkent</cite>
+    </blockquote>
+    <blockquote>
+        <img src="{% static 'images/user2.jpg' %}" alt="Jasur" class="testimonial-img">
+        <p>“Psixologiya bo‘limi menga bolam bilan to‘g‘ri muloqot qilishni o‘rgatdi.”</p>
+        <cite>— Jasur, Samarqand</cite>
+    </blockquote>
+</div>
+
+
+<!-- Aloqa bo‘limi -->
+<section class="contact">
+    <h2>Aloqa</h2>
+    <form>
+        <input type="text" placeholder="Ismingiz" required>
+        <input type="email" placeholder="Email manzilingiz" required>
+        <textarea placeholder="Xabaringiz" required></textarea>
+        <button type="submit">Yuborish</button>
+    </form>
+</section>
+
+
+        <footer>
+        <p>© 2025 Beshik. Barcha huquqlar himoyalangan. 🇺🇿</p>
+    </footer>
+
+    <!-- Hero slider JS -->
+    <script>
+    const slides = document.querySelectorAll('.hero-slider .slide');
+    let currentSlide = 0;
+
+    function nextSlide() {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }
+
+    setInterval(nextSlide, 5000); // har 5 soniyada rasm o‘zgaradi
+    </script>
+</body>
+</html>
+
